@@ -15,41 +15,10 @@ INPUT_EMPTY=${INPUT_EMPTY:-false}
 INPUT_DIRECTORY=${INPUT_DIRECTORY:-'.'}
 REPOSITORY=${INPUT_REPOSITORY:-$GITHUB_REPOSITORY}
 
-echo "Push to branch $INPUT_BRANCH";
-[ -z "${INPUT_GITHUB_TOKEN}" ] && {
-    echo 'Missing input "github_token: ${{ secrets.GITHUB_TOKEN }}".';
-    exit 1;
-};
+echo "ciao";
 
-if ${INPUT_EMPTY}; then
-    _EMPTY='--allow-empty'
-fi
-
-if ${INPUT_FORCE}; then
-    _FORCE_OPTION='--force'
-fi
-
-if ${INPUT_TAGS}; then
-    _TAGS='--tags'
-fi
-
-cd "${INPUT_DIRECTORY}"
-
-remote_repo="https://${GITHUB_ACTOR}:${INPUT_GITHUB_TOKEN}@github.com/${REPOSITORY}.git"
-
-git config http.sslVerify false
-git config --local user.email "${INPUT_AUTHOR_EMAIL}"
-git config --local user.name "${INPUT_AUTHOR_NAME}"
-
-git add -A
-
-if [ -n "${INPUT_COAUTHOR_EMAIL}" ] && [ -n "${INPUT_COAUTHOR_NAME}" ]; then
-    git commit -m "${INPUT_MESSAGE}
-    
-
-Co-authored-by: ${INPUT_COAUTHOR_NAME} <${INPUT_COAUTHOR_EMAIL}>" $_EMPTY || exit 0
-else
-    git commit -m "{$INPUT_MESSAGE}" $_EMPTY || exit 0
-fi
-
-git push "${remote_repo}" HEAD:"${INPUT_BRANCH}" --follow-tags $_FORCE_OPTION $_TAGS;
+sudo apt-get install doxygen python3-setuptools python3-sphinx 
+pip3 install "breathe==4.12.0" exhale sphinx_rtd_theme
+cd docs
+sphinx-build --version
+sphinx-build -b html ../docs ../docs/_build
