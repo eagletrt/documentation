@@ -20,8 +20,8 @@
 # -- Project information -----------------------------------------------------
 
 project = 'Eagletrt ubx parser master'
-copyright = '2021, Harrison Prest'
-author = 'Harrison Prest'
+copyright = '2021, {{AUTHOR}}'
+author = '{{AUTHOR}}'
 
 # The short X.Y version
 version = ''
