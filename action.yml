@@ -6,6 +6,10 @@ inputs:
     description: 'Documentation author'
     default: 'EagleTRT Team'
     required: false  
+  project:
+    description: 'Documentation project name'
+    default: 'EagleTRT project'
+    required: false
 runs:
   using: 'node12'
   main: 'start.js'
