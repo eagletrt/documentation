@@ -19,7 +19,7 @@
 
 # -- Project information -----------------------------------------------------
 
-project = 'Eagletrt ubx parser master'
+project = '{{PROJECT_NAME}}'
 copyright = '2021, {{AUTHOR}}'
 author = '{{AUTHOR}}'
 
