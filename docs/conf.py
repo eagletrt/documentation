@@ -19,7 +19,7 @@
 
 # -- Project information -----------------------------------------------------
 
-project = '{{PROJECT_NAME}}'
+project = '{{PROJECT}}'
 copyright = '2021, {{AUTHOR}}'
 author = '{{AUTHOR}}'
 
