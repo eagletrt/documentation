@@ -22,5 +22,7 @@ sed -i "s/{{AUTHOR}}/$INPUT_AUTHOR/" conf.py
 sed -i "s/{{PROJECT}}/$PROJECT_NAME/" conf.py
 sed -i "s/{{FOLDERS}}/$INPUT_FOLDERS/" conf.py
 
+echo "{{FOLDERS}}"
+
 sphinx-build --version
 sphinx-build -b html ../docs ../docs/_build
