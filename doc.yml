@@ -1,0 +1,22 @@
+
+name: Documentation
+on: [push]
+
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Documentation
+      uses: harrisonprest70/eagletrt-documentation@main
+      with: 
+        author: Harrison Prest
+        project: Eagletrt Parser Master
+    - name: Deploy 🚀
+      uses: JamesIves/github-pages-deploy-action@4.0.0
+      with:
+        nojekyll: true
+        branch: docs # The branch the action should deploy to.
+        folder: docs/_build # The folder the action should deploy.
