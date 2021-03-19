@@ -4,6 +4,7 @@ set -e
 
 INPUT_AUTHOR=${INPUT_AUTHOR:-'EagleTRT Team'}
 PROJECT_NAME=${PROJECT_NAME:-'EagleTRT Project'}
+CAR=${CAR:-'CIAOOO'}
 
 DIR="$(dirname "${BASH_SOURCE[0]}")"
 
@@ -19,6 +20,7 @@ cd docs
 
 sed -i "s/{{AUTHOR}}/$INPUT_AUTHOR/" conf.py
 sed -i "s/{{PROJECT}}/$PROJECT_NAME/" conf.py
+sed -i "s/{{VAL}}/$CAR/" conf.py
 
 sphinx-build --version
 sphinx-build -b html ../docs ../docs/_build
