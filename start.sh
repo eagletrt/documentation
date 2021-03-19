@@ -22,9 +22,9 @@ pip3 install "breathe==4.12.0" exhale sphinx_rtd_theme
 
 cd docs
 
-
-sed -i "s/{{AUTHOR}}/$INPUT_AUTHOR/" conf.py
 sed -i "s/{{PROJECT}}/$PROJECT_NAME/" conf.py
+sed -i "s/{{AUTHOR}}/$INPUT_AUTHOR/" conf.py
+
 
 sphinx-build --version
 sphinx-build -b html ../docs ../docs/_build
