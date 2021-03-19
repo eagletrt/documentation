@@ -16,7 +16,7 @@ inputs:
     required: false 
   folders:  
     description: 'Documentation input files'
-    default: '../utils'
+    default: 'INPUT = ../utils'
     required: false 
 runs:
   using: 'node12'
