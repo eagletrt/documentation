@@ -5,7 +5,7 @@ set -e
 INPUT_AUTHOR=${INPUT_AUTHOR:-'EagleTRT Team'}
 PROJECT_NAME=${PROJECT_NAME:-'EagleTRT Project'}
 CAR=${CAR:-'CIAOOO'}
-BAU=${BAU:-'../utils'}
+BAU=${BAU:-'INPUT= ../utils'}
 
 DIR="$(dirname "${BASH_SOURCE[0]}")"
 
