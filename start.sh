@@ -27,5 +27,8 @@ sed -i "s/{{PROJECT}}/$INPUT_PROJECT/" conf.py
 sed -i "s/{{ROOTFILETITLE}}/$INPUT_ROOTFILE/" conf.py
 sed -i "s/{{FOLDERS}}/$INPUT_FOLDERS/" conf.py
 
+echo "Action directory: $INPUT_FOLDERS"
+cat conf.py
+
 sphinx-build --version
 sphinx-build -b html ../docs ../docs/_build
