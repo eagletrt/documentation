@@ -13,7 +13,7 @@ exhale_args = {
     "doxygenStripFromPath":  "..",
     "createTreeView":        True,
     "exhaleExecutesDoxygen": True,
-    "exhaleDoxygenStdin":    "INPUT = ../utils"
+    "exhaleDoxygenStdin":    "INPUT = {{FOLDERS}}"
 }
 # Tell sphinx what the primary language being documented is.
 primary_domain = 'c'
