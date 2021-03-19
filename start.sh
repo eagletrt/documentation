@@ -4,7 +4,7 @@ set -e
 
 INPUT_AUTHOR=${INPUT_AUTHOR:-'EagleTRT Team'}
 PROJECT_NAME=${PROJECT_NAME:-'EagleTRT Project'}
-INPUT_FOLDERS=${INPUT_AUTHOR:-'EagleTRT Team'}
+INPUT_FOLDERS=${INPUT_AUTHOR:-'../utils'}
 
 DIR="$(dirname "${BASH_SOURCE[0]}")"
 
