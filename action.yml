@@ -10,14 +10,6 @@ inputs:
     description: 'Documentation project name'
     default: 'EagleTRT project'
     required: false 
-  val:
-    description: 'adfdaf'
-    default: 'afafdfa'
-    required: false 
-  miao:
-    description: 'Documentation project name'
-    default: '../utils'
-    required: false 
 runs:
   using: 'node12'
   main: 'start.js'
