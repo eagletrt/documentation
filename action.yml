@@ -9,12 +9,7 @@ inputs:
   project:
     description: 'Documentation project name'
     default: 'EagleTRT project'
-    required: true
-  folders: 
-    description: 'The folders of the files that you want to document'
-    default: '../utils'
-    required: true
-  
+    required: true  
 runs:
   using: 'node12'
   main: 'start.js'
