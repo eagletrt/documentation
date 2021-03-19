@@ -3,8 +3,8 @@
 set -e
 
 INPUT_AUTHOR=${INPUT_AUTHOR:-'EagleTRT Team'}
-PROJECT_NAME=${PROJECT_NAME:-'EagleTRT Project'}
-ROOTFILE=${ROOTFILE:-'TITOLO'}
+INPUT_PROJECT=${INPUT_PROJECT:-'EagleTRT Project'}
+INPUT_ROOTFILE=${INPUT_ROOTFILE:-'TITOLO'}
 
 DIR="$(dirname "${BASH_SOURCE[0]}")"
 
@@ -22,8 +22,8 @@ pip3 install "breathe==4.12.0" exhale sphinx_rtd_theme
 cd docs
 
 sed -i "s/{{AUTHOR}}/$INPUT_AUTHOR/" conf.py
-sed -i "s/{{PROJECT}}/$PROJECT_NAME/" conf.py
-sed -i "s/{{ROOTFILETITLE}}/$ROOTFILE/" conf.py
+sed -i "s/{{PROJECT}}/$INPUT_PROJECT/" conf.py
+sed -i "s/{{ROOTFILETITLE}}/$INPUT_ROOTFILE/" conf.py
 
 sphinx-build --version
 sphinx-build -b html ../docs ../docs/_build
