@@ -11,7 +11,10 @@ DIR="$(dirname "${BASH_SOURCE[0]}")"
 echo "Action directory: $DIR"
 ls -al "$DIR/docs"
 
-cp -R "$DIR/docs" "$GITHUB_WORKSPACE/docs"
+#cp -R "$DIR/docs" "$GITHUB_WORKSPACE/docs"
+cp "$DIR/docs/index.rst" "$GITHUB_WORKSPACE/docs"
+cp "$DIR/docs/Makefile" "$GITHUB_WORKSPACE/docs"
+cp "$DIR/docs/make.bat" "$GITHUB_WORKSPACE/docs"
 
 sudo apt-get install doxygen python3-sphinx
 pip3 install "breathe==4.12.0" exhale sphinx_rtd_theme
