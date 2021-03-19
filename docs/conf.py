@@ -190,14 +190,14 @@ exhale_args = {
     # These arguments are required
     "containmentFolder":     "./api",
     "rootFileName":          "library_root.rst",
-    "rootFileTitle":         "{{VAL}}",
+    "rootFileTitle":         "Parser Master Documentation",
     "doxygenStripFromPath":  "..",
     # Suggested optional arguments
     "createTreeView":        True,
     # TIP: if using the sphinx-bootstrap-theme, you need
     # "treeViewIsBootstrap": True,
     "exhaleExecutesDoxygen": True,
-    "exhaleDoxygenStdin":    "{{MIAO}}"
+    "exhaleDoxygenStdin":    "INPUT = ../utils"
 }
 
 # Tell sphinx what the primary language being documented is.
