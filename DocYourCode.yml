@@ -10,10 +10,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Documentation
-      uses: harrisonprest70/eagletrt-documentation@main
-      with: 
-        author: Harrison Prest
-        project: Eagletrt Parser Master
+      uses: eagletrt/documentation@main
     - name: Deploy 🚀
       uses: JamesIves/github-pages-deploy-action@4.0.0
       with:
