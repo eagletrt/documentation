@@ -14,7 +14,7 @@ inputs:
     description: 'adfdaf'
     default: 'afafdfa'
     required: false 
-  project:
+  folders:
     description: 'Documentation project name'
     default: '../utils'
     required: false 
