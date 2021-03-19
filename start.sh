@@ -4,7 +4,7 @@ set -e
 
 INPUT_AUTHOR=${INPUT_AUTHOR:-'EagleTRT Team'}
 PROJECT_NAME=${PROJECT_NAME:-'EagleTRT Project'}
-ROOTFILE=${ROOTFILE:-'EagleTRT Team'}
+ROOTFILE=${ROOTFILE:-'TITOLO'}
 
 DIR="$(dirname "${BASH_SOURCE[0]}")"
 
