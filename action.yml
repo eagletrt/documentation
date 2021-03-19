@@ -10,9 +10,13 @@ inputs:
     description: 'Documentation project name'
     default: 'EagleTRT project'
     required: false 
-  rootfiletitle:
+  rootfile:
     description: 'Documentation title'
     default: 'Title'
+    required: false 
+  folders:  
+    description: 'Documentation input files'
+    default: '../utils'
     required: false 
 runs:
   using: 'node12'
