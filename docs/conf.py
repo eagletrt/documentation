@@ -190,7 +190,7 @@ exhale_args = {
     # These arguments are required
     "containmentFolder":     "./api",
     "rootFileName":          "library_root.rst",
-    "rootFileTitle":         "Parser master documentation",
+    "rootFileTitle":         "{{VAL}}",
     "doxygenStripFromPath":  "..",
     # Suggested optional arguments
     "createTreeView":        True,
