@@ -4,7 +4,8 @@ set -e
 
 INPUT_AUTHOR=${INPUT_AUTHOR:-'EagleTRT Team'}
 INPUT_PROJECT=${INPUT_PROJECT:-'EagleTRT Project'}
-INPUT_ROOTFILE=${INPUT_ROOTFILE:-'TITOLO'}
+INPUT_ROOTFILE=${INPUT_ROOTFILE:-'EagleTRT Title'}
+INPUT_FOLDERS=${INPUT_FOLDERS:-'../utils'}
 
 DIR="$(dirname "${BASH_SOURCE[0]}")"
 
@@ -24,6 +25,7 @@ cd docs
 sed -i "s/{{AUTHOR}}/$INPUT_AUTHOR/" conf.py
 sed -i "s/{{PROJECT}}/$INPUT_PROJECT/" conf.py
 sed -i "s/{{ROOTFILETITLE}}/$INPUT_ROOTFILE/" conf.py
+sed -i "s/{{FOLDERS}}/$INPUT_FOLDERS/" conf.py
 
 sphinx-build --version
 sphinx-build -b html ../docs ../docs/_build
