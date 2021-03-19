@@ -5,11 +5,11 @@ inputs:
   author:
     description: 'Documentation author'
     default: 'EagleTRT Team'
-    required: false  
+    required: false 
   project:
     description: 'Documentation project name'
     default: 'EagleTRT project'
-    required: true  
+    required: false 
 runs:
   using: 'node12'
   main: 'start.js'
