@@ -15,7 +15,7 @@ jobs:
         author: Eagletrt
         project: Eagletrt Project
         rootfile: Title
-        folders: ../utils
+        folders: ../utils/config_parser ../main.c
         version: 1.0.0
         release: 1.0.0
         language: c
