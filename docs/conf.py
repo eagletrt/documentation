@@ -3,8 +3,8 @@
 project = '{{PROJECT}}'
 copyright = '2021, {{AUTHOR}}'
 author = '{{AUTHOR}}'
-version = ''
-release = '1.0.0'
+version = '{{VERSION}}'
+release = '{{RELEASE}}'
 
 exhale_args = {
     "containmentFolder":     "./api",
@@ -16,11 +16,17 @@ exhale_args = {
     "exhaleDoxygenStdin":    "INPUT = {{FOLDERS}}"
 }
 # Tell sphinx what the primary language being documented is.
-primary_domain = 'c'
-highlight_language = 'c'
+primary_domain = '{{LANGUAGE}}'
+highlight_language = '{{LANGUAGE}}'
+
+
+
 
 html_theme = 'sphinx_rtd_theme'
 html_static_path = ['_static']
+
+
+
 
 # -- General configuration ---------------------------------------------------
 extensions = [
