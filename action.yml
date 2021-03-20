@@ -16,7 +16,19 @@ inputs:
     required: false 
   folders:  
     description: 'Documentation input files'
-    default: 'INPUT = ../utils'
+    default: '../utils'
+    required: false 
+  version:
+    description: 'Documentation version'
+    default: ''
+    required: false 
+  release:
+    description: 'Documentation release'
+    default: '1.0.0'
+    required: false 
+  language:
+    description: 'Primary language fo the code'
+    default: 'c'
     required: false 
 runs:
   using: 'node12'
