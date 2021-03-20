@@ -22,20 +22,11 @@ pip3 install "breathe==4.12.0" exhale sphinx_rtd_theme
 
 cd docs
 
-echo "Action directory: $INPUT_FOLDERS"
-cat conf.py
-
 sed -i "s/{{AUTHOR}}/$INPUT_AUTHOR/" conf.py
 sed -i "s/{{PROJECT}}/$INPUT_PROJECT/" conf.py
 sed -i "s/{{ROOTFILETITLE}}/$INPUT_ROOTFILE/" conf.py
+sed -i "s+{{FOLDERS}}+$INPUT_FOLDERS+" conf.py
 
-echo "Action directory: $INPUT_FOLDERS"
-cat conf.py
-
-sed -i "s/{{FOLDERS}}/$INPUT_FOLDERS/" conf.py
-
-echo "Action directory: $INPUT_FOLDERS"
-cat conf.py
 
 sphinx-build --version
 sphinx-build -b html ../docs ../docs/_build
