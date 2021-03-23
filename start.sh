@@ -30,10 +30,10 @@ sed -i "s/{{VERSION}}/$INPUT_VERSION/" conf.py
 sed -i "s/{{RELEASE}}/$INPUT_RELEASE/" conf.py
 sed -i "s/{{LANGUAGE}}/$INPUT_LANGUAGE/" conf.py
 
-cat conf.py
-
 sphinx-build --version
 sphinx-build -b html ../docs ../docs/_build
+
+cd -
 
 sudo apt install graphviz
 doxygen -g
