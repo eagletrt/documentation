@@ -67,7 +67,6 @@ do
         html="file$dir"_"$file"."$ext.html"
         filepng=${file/"_"/"__"}
         png="html/$filepng"_"8$ext"__"dep__incl.png"
-        cd -
         cd docs/_build/api
         sed -i "s+<div class=\"wy-nav-content\">+<div class=\"libGraph\"><img src=\"$png\" alt=\"prova\"></div><div class=\"wy-nav-content\">+" $html
     fi     
