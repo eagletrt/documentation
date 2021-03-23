@@ -34,3 +34,41 @@ cat conf.py
 
 sphinx-build --version
 sphinx-build -b html ../docs ../docs/_build
+
+sudo apt install graphviz
+doxygen -g
+sed -i "s+HAVE_DOT               = NO+HAVE_DOT               = YES+" Doxyfile
+sed -i "s+RECURSIVE              = NO+RECURSIVE              = YES+" Doxyfile
+sed -i "s+EXTRACT_ALL            = NO+EXTRACT_ALL            = YES+" Doxyfile
+doxygen Doxyfile
+
+cp -R "html" "docs/_build/api"
+
+filenames=$(ls -R )
+for f in $filenames */
+do
+    boolDir=${f%./*}
+    if [[ $boolDir != $f ]]
+    then
+        dir=${f##*.}
+        dir=${dir%:*}
+        dirM=${dir/"/"/"_"}
+        while [[ $dirM != $dir ]]
+        do
+            dir=$dirM
+            dirM=${dirM/"/"/"_"}
+        done
+    fi
+    ext=${f##*.}
+    if [[ $ext != $f ]]
+    then
+        file=${f##*/}
+        file=${file%.*}
+        html="file$dir"_"$file"."$ext.html"
+        filepng=${file/"_"/"__"}
+        png="html/$filepng"_"8$ext"__"dep__incl.png"
+        cd -
+        cd docs/_build/api
+        sed -i "s+<div class=\"wy-nav-content\">+<div class=\"libGraph\"><img src=\"$png\" alt=\"prova\"></div><div class=\"wy-nav-content\">+" $html
+    fi     
+done
