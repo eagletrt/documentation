@@ -65,7 +65,7 @@ do
         value=$val2
     else
         echo "cambio a 0"
-        end = 0
+        let "end -= 1"
         echo "cambio a 0 DONE"
     fi
     echo "!! 3"
@@ -94,7 +94,7 @@ do
                 fi
             fi
         fi
-        a=1
+        let "a += 1"
         if [ $boolDir != $f ];
         then
             dir=$boolDir
