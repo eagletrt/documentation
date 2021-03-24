@@ -47,7 +47,7 @@ cp -R **/*.png "html" "docs/_build/api"
 ls -R utils
 echo "!! prova"
 value="../utils"
-e=0;
+end=0;
 while [[ $end -ne 0 ]]
 do
     val1=${value%% *}
@@ -65,9 +65,8 @@ do
         value=$val2
     else
         echo "cambio a 0"
-        e=$(( e + 1 ));
+        end=$(( end + 1 ));
         echo "cambio a 0 DONE"
-        e=$e+1
     fi
     echo "!! 3"
     a=0
