@@ -59,11 +59,13 @@ do
     fi
     echo "!! 2"
     val2=${value#* }
-    if [[ $val2 != $value ]]
+    if [ $val2 != $value ];
     then
+        echo "cambio value"
         value=$val2
     else
-        let "end = 0"
+        echo "cambio a 0"
+        end = 0
     fi
     echo "!! 3"
     a=0
@@ -82,7 +84,7 @@ do
                     dir="";
                 else
                     dirM=${dir/"/"/"_"}
-                    while [[ $dirM != $dir ]]
+                    while [ $dirM != $dir ];
                     do
                         dir=$dirM
                         dirM=${dirM/"/"/"_"}
@@ -92,11 +94,11 @@ do
             fi
         fi
         a=1
-        if [[ $boolDir != $f ]]
+        if [ $boolDir != $f ];
         then
             dir=$boolDir
             dirM=${dir/"/"/"_"}
-            while [[ $dirM != $dir ]]
+            while [ $dirM != $dir ];
             do
                 dir=$dirM
                 dirM=${dirM/"/"/"_"}
@@ -104,7 +106,7 @@ do
             dir="_$dir"                        
         fi
         ext=${f##*.}
-        if [[ $ext != $f ]]
+        if [ $ext != $f ];
         then
             file=${f##*/}
             file=${file%.*}
