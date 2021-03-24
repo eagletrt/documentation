@@ -51,6 +51,7 @@ end=1;
 while [[ $end -ne 0 ]]
 do
     val1=${value%% *}
+    echo "!! $val1"
     valP=${val1#*/}
     if [ $val1 == "../$valP" ] || [ $val1 == "./$valP" ] || [ $val1 == "/$valP" ] ;
     then
@@ -64,7 +65,7 @@ do
     else
         let "end = 0"
     fi
-    echo "!! $val1"
+    
     a=0
     filenames=$(ls -R $val1)   
     for f in $filenames */
