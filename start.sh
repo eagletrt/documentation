@@ -66,6 +66,7 @@ do
     else
         echo "cambio a 0"
         end = 0
+        echo "cambio a 0 DONE"
     fi
     echo "!! 3"
     a=0
