@@ -44,7 +44,7 @@ doxygen Doxyfile
 
 cp -R **/*.png "html" "docs/_build/api"
 
-ls
+ls -R utils
 
 value="../utils"
 end=1;
@@ -64,12 +64,12 @@ do
     else
         let "end = 0"
     fi
-    
+    echo "$val1"
     a=0
     filenames=$(ls -R $val1)   
     for f in $filenames */
     do
-        echo "$val1"
+        
         boolDir=${f%:*}
         if [ $a -eq 0 ];
         then
