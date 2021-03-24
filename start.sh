@@ -44,30 +44,53 @@ doxygen Doxyfile
 
 cp -R "html" "docs/_build/api"
 
-filenames=$(ls -R )
-for f in $filenames */
+value=$INPUT_FOLDERS
+end=1;
+while [[ $end -ne 0 ]]
 do
-    boolDir=${f%./*}
-    if [[ $boolDir != $f ]]
+    val1=${value%% *}
+    valP=${val1#*/}
+    if [ $val1 == "../$valP" ] || [ $val1 == "./$valP" ] || [ $val1 == "/$valP" ] ;
     then
-        dir=${f##*.}
-        dir=${dir%:*}
-        dirM=${dir/"/"/"_"}
-        while [[ $dirM != $dir ]]
-        do
-            dir=$dirM
-            dirM=${dirM/"/"/"_"}
-        done
+        val1=${val1#*/}
     fi
-    ext=${f##*.}
-    if [[ $ext != $f ]]
+    echo "$val1"
+
+    val2=${value#* }
+    if [[ $val2 != $value ]]
     then
-        file=${f##*/}
-        file=${file%.*}
-        html="file$dir"_"$file"."$ext.html"
-        filepng=${file/"_"/"__"}
-        png="html/$filepng"_"8$ext"__"dep__incl.png"
-        cd docs/_build/api
-        sed -i "s+<div class=\"wy-nav-content\">+<div class=\"libGraph\"><img src=\"$png\" alt=\"prova\"></div><div class=\"wy-nav-content\">+" $html
-    fi     
+        value=$val2
+    else
+        let "end = 0"
+    fi
+
+    filenames=$(ls -R $val1)    
+    for f in $filenames */
+    do
+        boolDir=${f%./*}
+        if [[ $boolDir != $f ]]
+        then
+            dir=${f##*.}
+            dir=${dir%:*}
+            dirM=${dir/"/"/"_"}
+            while [[ $dirM != $dir ]]
+            do
+                dir=$dirM
+                dirM=${dirM/"/"/"_"}
+            done
+        fi
+        ext=${f##*.}
+        if [[ $ext != $f ]]
+        then
+            file=${f##*/}
+            file=${file%.*}
+            html="file_utils$dir"_"$file"."$ext.html"
+            filepng=${file/"_"/"__"}
+            png="html/$filepng"_"8$ext"__"dep__incl.png"
+            cd docs/_build/api
+            echo "$html"
+            #sed -i "s+<div class=\"wy-nav-content\">+<div class=\"libGraph\"><img src=\"$png\" alt=\"prova\"></div><div class=\"wy-nav-content\">+" $html
+            cd - &> /dev/null
+        fi    
+    done   
 done
