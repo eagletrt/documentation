@@ -44,7 +44,7 @@ doxygen Doxyfile
 
 cp -R "html" "docs/_build/api"
 
-value=$INPUT_FOLDERS
+value="../utils ../main.c"
 end=1;
 while [[ $end -ne 0 ]]
 do
