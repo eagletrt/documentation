@@ -67,6 +67,7 @@ do
     filenames=$(ls -R $val1)   
     for f in $filenames */
     do
+        echo "$val1"
         boolDir=${f%:*}
         if [ $a -eq 0 ];
         then
