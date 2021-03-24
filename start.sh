@@ -64,7 +64,7 @@ do
     else
         let "end = 0"
     fi
-    echo "$val1"
+    echo "!! $val1"
     a=0
     filenames=$(ls -R $val1)   
     for f in $filenames */
