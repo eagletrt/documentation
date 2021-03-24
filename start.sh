@@ -57,7 +57,7 @@ do
     then
         val1=${val1#*/}
     fi
-
+    echo "!! 2"
     val2=${value#* }
     if [[ $val2 != $value ]]
     then
@@ -65,7 +65,7 @@ do
     else
         let "end = 0"
     fi
-    
+    echo "!! 3"
     a=0
     filenames=$(ls -R $val1)   
     for f in $filenames */
