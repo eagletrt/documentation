@@ -90,7 +90,7 @@ do
             cd docs/_build/api
             echo "$html"
             #sed -i "s+<div class=\"wy-nav-content\">+<div class=\"libGraph\"><img src=\"$png\" alt=\"prova\"></div><div class=\"wy-nav-content\">+" $html
-            cd - &> /dev/null
+            cd -
         fi    
     done   
 done
