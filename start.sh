@@ -88,7 +88,8 @@ do
             filepng=${file/"_"/"__"}
             png="html/$filepng"_"8$ext"__"dep__incl.png"
             cd docs/_build/api
-            sed -i "s+<div class=\"wy-nav-content\">+<div class=\"libGraph\"><img src=\"$png\" alt=\"prova\"></div><div class=\"wy-nav-content\">+" $html
+            echo "$html"
+            #sed -i "s+<div class=\"wy-nav-content\">+<div class=\"libGraph\"><img src=\"$png\" alt=\"prova\"></div><div class=\"wy-nav-content\">+" $html
             cd - &> /dev/null
         fi    
     done   
