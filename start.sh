@@ -45,9 +45,9 @@ doxygen Doxyfile
 cp -R **/*.png "html" "docs/_build/api"
 
 ls -R utils
-
+echo "!! prova"
 value="../utils"
-e=0
+e=0;
 while [[ $end -ne 0 ]]
 do
     val1=${value%% *}
