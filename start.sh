@@ -44,6 +44,8 @@ doxygen Doxyfile
 
 cp -R "html" "docs/_build/api"
 
+ls html
+
 value="../utils"
 end=1;
 while [[ $end -ne 0 ]]
