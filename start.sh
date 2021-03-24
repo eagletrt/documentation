@@ -44,7 +44,7 @@ doxygen Doxyfile
 
 cp -R "html" "docs/_build/api"
 
-value="../utils ../main.c"
+value=$INPUT_FOLDERS
 end=1;
 while [[ $end -ne 0 ]]
 do
@@ -54,7 +54,6 @@ do
     then
         val1=${val1#*/}
     fi
-    echo "$val1"
 
     val2=${value#* }
     if [[ $val2 != $value ]]
@@ -63,28 +62,49 @@ do
     else
         let "end = 0"
     fi
-
-    filenames=$(ls -R $val1)    
+    
+    a=0
+    filenames=$(ls -R $val1)   
     for f in $filenames */
     do
-        boolDir=${f%./*}
+        boolDir=${f%:*}
+        if [ $a -eq 0 ];
+        then
+            if [ $f != ${f%.*} ];
+            then
+                dir=${f%/*}
+                if [ $dir == $f ];
+                then
+                    dir="";
+                else
+                    dirM=${dir/"/"/"_"}
+                    while [[ $dirM != $dir ]]
+                    do
+                        dir=$dirM
+                        dirM=${dirM/"/"/"_"}
+                    done  
+                    dir="_$dir"
+                fi
+            fi
+        fi
+        a=1
         if [[ $boolDir != $f ]]
         then
-            dir=${f##*.}
-            dir=${dir%:*}
+            dir=$boolDir
             dirM=${dir/"/"/"_"}
             while [[ $dirM != $dir ]]
             do
                 dir=$dirM
                 dirM=${dirM/"/"/"_"}
-            done
+            done  
+            dir="_$dir"                        
         fi
         ext=${f##*.}
         if [[ $ext != $f ]]
         then
             file=${f##*/}
             file=${file%.*}
-            html="file_utils$dir"_"$file"."$ext.html"
+            html="file$dir"_"$file"."$ext.html"
             filepng=${file/"_"/"__"}
             png="html/$filepng"_"8$ext"__"dep__incl.png"
             cd docs/_build/api
