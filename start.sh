@@ -105,7 +105,7 @@ do
             file=${file%.*}
             html="file$dir"_"$file"."$ext.html"
             filepng=${file/"_"/"__"}
-            if [ $ext = "h"];
+            if [ $ext = "h" ];
             then
                 png="html/$filepng"_"8$ext"__"dep__incl.png"
             else
