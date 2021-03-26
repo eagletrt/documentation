@@ -108,7 +108,7 @@ do
             png="html/$filepng"_"8$ext"__"dep__incl.png"
             cd docs/_build/api
             echo "Add dependencies graph to $html"
-            sed -i "s+<div role=\"main\" class=\"document\"+<div class=\"libGraph\"><img src=\"$png\" alt=\"depGraph\" style=\"position:relative;left: 20%;\"></div><div role=\"main\" class=\"document\"+" $html
+            sed -i "s+<div role=\"main\" class=\"document\"+<div class=\"libGraph\"><img src=\"$png\" alt=\"depGraph\" style=\"position:relative;left: 5%;\"></div><div role=\"main\" class=\"document\"+" $html
 
             cd - &> /dev/null
         fi    
