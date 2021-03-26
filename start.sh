@@ -44,36 +44,28 @@ doxygen Doxyfile
 
 cp -R **/*.png "html" "docs/_build/api"
 
-ls -R utils
-echo "!! prova"
-value="../utils"
+
+value=$INPUT_FOLDERS
 end=1;
 while [[ $end -ne 0 ]]
 do
     val1=${value%% *}
-    echo "!! $val1"
     valP=${val1#*/}
     if [ $val1 == "../$valP" ] || [ $val1 == "./$valP" ] || [ $val1 == "/$valP" ] ;
     then
         val1=${val1#*/}
     fi
-    echo "!! 2"
     val2=${value#* }
     if [ $val2 != $value ];
     then
-        echo "cambio value"
         value=$val2
     else
-        echo "cambio a 0"
         end=$(( end - 1 ));
-        echo "cambio a 0 DONE"
     fi
-    echo "!! 3"
     a=0
     filenames=$(ls -R $val1)   
     for f in $filenames */
     do
-        
         boolDir=${f%:*}
         if [ $a -eq 0 ];
         then
@@ -115,7 +107,7 @@ do
             filepng=${file/"_"/"__"}
             png="html/$filepng"_"8$ext"__"dep__incl.png"
             cd docs/_build/api
-            echo "$html"
+            echo "Add dependencies graph to $html"
             sed -i "s+<div class=\"wy-nav-content\">+<div class=\"libGraph\"><img src=\"$png\" alt=\"prova\"></div><div class=\"wy-nav-content\">+" $html
             cd - &> /dev/null
         fi    
