@@ -99,23 +99,24 @@ do
             dir="_$dir"                        
         fi
         ext=${f##*.}
-        if [ $ext != $f ];
-        then
-            file=${f##*/}
-            file=${file%.*}
-            html="file$dir"_"$file"."$ext.html"
-            filepng=${file/"_"/"__"}
-            if [ $ext = "h" ];
-            then
-                png="html/$filepng"_"8$ext"__"dep__incl.png"
-            else
-                png="html/$filepng"_"8$ext""__incl.png"
-            fi
-            cd docs/_build/api
-            echo "Add dependencies graph to $html"
-            sed -i "s+<div role=\"main\" class=\"document\"+<div class=\"libGraph\"><img src=\"$png\" alt=\"depGraph\" style=\"position:relative;left: 5%;\"></div><div role=\"main\" class=\"document\"+" $html
-
-            cd - &> /dev/null
-        fi    
+        case $ext in
+            c | cpp | h | hpp| py | js | java)
+                file=${f##*/}
+                file=${file%.*}
+                html="file$dir"_"$file"."$ext.html"
+                filepng=${file/"_"/"__"}
+                if [ $ext = "h" ];
+                then
+                    png="html/$filepng"_"8$ext"__"dep__incl.png"
+                else
+                    png="html/$filepng"_"8$ext""__incl.png"
+                fi
+                cd docs/_build/api
+                echo "Add dependencies graph to $html"
+                sed -i "s+<div role=\"main\" class=\"document\"+<div class=\"libGraph\"><img src=\"$png\" alt=\"depGraph\" style=\"position:relative;left: 5%;\"></div><div role=\"main\" class=\"document\"+" $html
+                ;;
+            *)
+                ;; 
+        cd - &> /dev/null   
     done   
 done
