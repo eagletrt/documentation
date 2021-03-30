@@ -21,10 +21,6 @@ sudo apt-get install doxygen python3-sphinx
 pip3 install "breathe==4.12.0" exhale sphinx_rtd_theme
 
 cd docs
-echo "Creating nojekyll"
-> .nojekyll
-touch .nojekyll
-ls
 
 sed -i "s/{{AUTHOR}}/$INPUT_AUTHOR/" conf.py
 sed -i "s/{{PROJECT}}/$INPUT_PROJECT/" conf.py
