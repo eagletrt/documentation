@@ -117,7 +117,8 @@ do
                 ;;
             *)
                 echo "$ext files not documented"
-                ;; 
+                ;;
+        esac
         cd - &> /dev/null   
     done   
 done
