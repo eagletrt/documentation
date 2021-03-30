@@ -44,6 +44,7 @@ doxygen Doxyfile
 
 cp -R **/*.png "html" "docs/_build/api"
 
+> .nojekyll
 
 value=$INPUT_FOLDERS
 end=1;
