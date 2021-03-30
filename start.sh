@@ -22,6 +22,8 @@ pip3 install "breathe==4.12.0" exhale sphinx_rtd_theme
 
 cd docs
 
+touch .nojekyll
+
 sed -i "s/{{AUTHOR}}/$INPUT_AUTHOR/" conf.py
 sed -i "s/{{PROJECT}}/$INPUT_PROJECT/" conf.py
 sed -i "s/{{ROOTFILETITLE}}/$INPUT_ROOTFILE/" conf.py
@@ -44,7 +46,7 @@ doxygen Doxyfile
 
 cp -R **/*.png "html" "docs/_build/api"
 
-> .nojekyll
+
 
 value=$INPUT_FOLDERS
 end=1;
