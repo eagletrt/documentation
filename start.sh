@@ -116,6 +116,7 @@ do
                 sed -i "s+<div role=\"main\" class=\"document\"+<div class=\"libGraph\"><img src=\"$png\" alt=\"depGraph\" style=\"position:relative;left: 5%;\"></div><div role=\"main\" class=\"document\"+" $html
                 ;;
             *)
+                echo "$ext files not documented"
                 ;; 
         cd - &> /dev/null   
     done   
