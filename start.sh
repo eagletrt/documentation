@@ -24,7 +24,6 @@ cd docs
 echo "Creating nojekyll"
 > .nojekyll
 touch .nojekyll
-pico .nojekyll
 ls
 
 sed -i "s/{{AUTHOR}}/$INPUT_AUTHOR/" conf.py
