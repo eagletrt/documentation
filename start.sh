@@ -57,70 +57,44 @@ do
         val1=${val1#*/}
     fi
     val2=${value#* }
-    if [ $val2 != $value ];
+    if [[ $val2 != $value ]]
     then
         value=$val2
     else
         end=$(( end - 1 ));
     fi
-    a=0
+    dir=""
     filenames=$(ls -R $val1)   
     for f in $filenames */
     do
-        boolDir=${f%:*}
-        if [ $a -eq 0 ];
+        f=${f%%:*}
+        echo $f;
+        if [[ -d $f || -d $val1"/"$f ]]; 
         then
-            if [ $f != ${f%.*} ];
-            then
-                dir=${f%/*}
-                if [ $dir == $f ];
-                then
-                    dir="";
-                else
-                    dirM=${dir/"/"/"_"}
-                    while [ $dirM != $dir ];
-                    do
-                        dir=$dirM
-                        dirM=${dirM/"/"/"_"}
-                    done  
-                    dir="_$dir"
-                fi
-            fi
+            dir=${f/"/"/"_"}
+            dir="_$dir"
+        else
+            ext=${f##*.}
+            case $ext in
+                c | cpp | h | hpp| py | js | java)
+                    file=${f%%.*}
+                    html="file$dir"_"$file"."$ext.html"
+                    filepng=${file/"_"/"__"}
+                    if [ $ext = "h" ];
+                    then
+                        png="html/$filepng"_"8$ext"__"dep__incl.png"
+                    else
+                        png="html/$filepng"_"8$ext""__incl.png"
+                    fi
+                    cd docs/_build/api
+                    echo "Add dependencies graph to $html"
+                    sed -i "s+<div role=\"main\" class=\"document\"+<div class=\"libGraph\"><img src=\"$png\" alt=\"depGraph\" style=\"position:relative;left: 5%;\"></div><div role=\"main\" class=\"document\"+" $html
+                    cd - &> /dev/null
+                    ;;
+                *)
+                    echo "$ext files not documented"
+                    ;;
+            esac 
         fi
-        let "a += 1"
-        if [ $boolDir != $f ];
-        then
-            dir=$boolDir
-            dirM=${dir/"/"/"_"}
-            while [ $dirM != $dir ];
-            do
-                dir=$dirM
-                dirM=${dirM/"/"/"_"}
-            done  
-            dir="_$dir"                        
-        fi
-        ext=${f##*.}
-        case $ext in
-            c | cpp | h | hpp| py | js | java)
-                file=${f##*/}
-                file=${file%.*}
-                html="file$dir"_"$file"."$ext.html"
-                filepng=${file/"_"/"__"}
-                if [ $ext = "h" ];
-                then
-                    png="html/$filepng"_"8$ext"__"dep__incl.png"
-                else
-                    png="html/$filepng"_"8$ext""__incl.png"
-                fi
-                cd docs/_build/api
-                echo "Add dependencies graph to $html"
-                sed -i "s+<div role=\"main\" class=\"document\"+<div class=\"libGraph\"><img src=\"$png\" alt=\"depGraph\" style=\"position:relative;left: 5%;\"></div><div role=\"main\" class=\"document\"+" $html
-                cd - &> /dev/null
-                ;;
-            *)
-                echo "$ext files not documented"
-                ;;
-        esac
-           
-    done   
+    done
 done
