@@ -109,5 +109,4 @@ done
 cd docs/_build
 touch .nojekyll
 
-cd api
 sed -i "s+Welcome to Eagletrt ubx parser master’s documentation!+Welcome to $INPUT_PROJECT’s documentation!+" index.html
