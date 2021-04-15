@@ -105,3 +105,6 @@ do
         fi
     done
 done
+
+cd docs/_build
+touch .nojekyll
