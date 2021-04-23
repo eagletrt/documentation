@@ -42,7 +42,7 @@ sed -i "s+RECURSIVE              = NO+RECURSIVE              = YES+" Doxyfile
 sed -i "s+EXTRACT_ALL            = NO+EXTRACT_ALL            = YES+" Doxyfile
 doxygen Doxyfile
 
-mkdir docs/api/png
+mkdir docs/_build/api/png
 cd html
 find ./ -name '*.png' -exec cp -prv '{}' '../docs/api/png' ';'
 cd -
