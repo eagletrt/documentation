@@ -42,9 +42,10 @@ sed -i "s+RECURSIVE              = NO+RECURSIVE              = YES+" Doxyfile
 sed -i "s+EXTRACT_ALL            = NO+EXTRACT_ALL            = YES+" Doxyfile
 doxygen Doxyfile
 
-cp -R **/*.png "html" "docs/_build/api"
-
-
+mkdir docs/api/png
+cd html
+find ./ -name '*.png' -exec cp -prv '{}' '../docs/api/png' ';'
+cd -
 
 value=$INPUT_FOLDERS
 end=1;
@@ -88,9 +89,9 @@ do
                         filepng=${file/"_"/"__"}
                         if [ $ext = "h" ];
                         then
-                            png="html/$filepng"_"8$ext"__"dep__incl.png"
+                            png="png/$filepng"_"8$ext"__"dep__incl.png"
                         else
-                            png="html/$filepng"_"8$ext""__incl.png"
+                            png="png/$filepng"_"8$ext""__incl.png"
                         fi
                         cd docs/_build/api
                         echo "Add dependencies graph to $html"
