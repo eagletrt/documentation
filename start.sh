@@ -44,7 +44,7 @@ doxygen Doxyfile
 
 mkdir docs/_build/api/png
 cd html
-find ./ -name '*.png' -exec cp -prv '{}' '../docs/api/png' ';'
+find ./ -name '*.png' -exec cp -prv '{}' '../docs/_build/api/png' ';'
 cd -
 
 value=$INPUT_FOLDERS
