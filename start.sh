@@ -9,6 +9,7 @@ INPUT_FOLDERS=${INPUT_FOLDERS:-'../utils'}
 INPUT_VERSION=${INPUT_VERSION:-'1.0.0'}
 INPUT_RELEASE=${INPUT_RELEASE:-'1.0.0'}
 INPUT_LANGUAGE=${INPUT_LANGUAGE:-'c'}
+INPUT_BRANCHNAME=${INPUT_BRANCHNAME:-'main'}
 
 DIR="$(dirname "${BASH_SOURCE[0]}")"
 
@@ -111,3 +112,10 @@ cd docs/_build
 touch .nojekyll
 
 sed -i "s+Welcome to Eagletrt ubx parser master’s documentation!+Welcome to $INPUT_PROJECT’s documentation!+" index.html
+
+cd -
+cd -
+mkdir upload
+cp -r "docs/_build" "upload"
+mv "upload/_build" "prova/$INPUT_BRANCHNAME"
+
