@@ -114,7 +114,8 @@ touch .nojekyll
 sed -i "s+Welcome to Eagletrt ubx parser master’s documentation!+Welcome to $INPUT_PROJECT’s documentation!+" index.html
 
 cd --
-ls docs
+pwd
+ls
 mkdir upload
 cp -r "docs/_build" "upload"
 mv "upload/_build" "prova/$INPUT_BRANCHNAME"
