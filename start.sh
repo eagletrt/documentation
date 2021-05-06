@@ -118,6 +118,6 @@ mkdir upload
 cp -r "docs/_build" "upload"
 mv "upload/_build" "upload/$INPUT_BRANCHNAME"
 
-cp -R "$DIR/copytoyourdocsbranch" "$GITHUB_WORKSPACE/upload"
+cp -r "$DIR/copytoyourdocsbranch" "$GITHUB_WORKSPACE/upload"
 
 
