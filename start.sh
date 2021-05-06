@@ -119,6 +119,4 @@ mv "copytoyourdocsbranch" "upload"
 cp -r "docs/_build" "upload"
 mv "upload/_build" "upload/$INPUT_BRANCHNAME"
 
-cp -r "$DIR/copytoyourdocsbranch" "$GITHUB_WORKSPACE/upload"
-
 
