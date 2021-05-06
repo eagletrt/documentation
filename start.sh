@@ -118,5 +118,5 @@ pwd
 ls
 mkdir upload
 cp -r "docs/_build" "upload"
-mv "upload/_build" "prova/$INPUT_BRANCHNAME"
+mv "upload/_build" "upload/$INPUT_BRANCHNAME"
 
