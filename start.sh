@@ -115,7 +115,7 @@ sed -i "s+Welcome to Eagletrt ubx parser master’s documentation!+Welcome to $I
 
 cd -
 cd -
-ls
+ls docs
 mkdir upload
 cp -r "docs/_build" "upload"
 mv "upload/_build" "prova/$INPUT_BRANCHNAME"
