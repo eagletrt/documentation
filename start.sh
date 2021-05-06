@@ -114,9 +114,10 @@ touch .nojekyll
 sed -i "s+Welcome to Eagletrt ubx parser master’s documentation!+Welcome to $INPUT_PROJECT’s documentation!+" index.html
 
 cd -
-pwd
-ls
 mkdir upload
 cp -r "docs/_build" "upload"
 mv "upload/_build" "upload/$INPUT_BRANCHNAME"
+
+cp -R "$DIR/copytoyourdocsbranch" "$GITHUB_WORKSPACE/upload"
+
 
