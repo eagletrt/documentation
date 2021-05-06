@@ -113,8 +113,7 @@ touch .nojekyll
 
 sed -i "s+Welcome to Eagletrt ubx parser master’s documentation!+Welcome to $INPUT_PROJECT’s documentation!+" index.html
 
-cd -
-cd -
+cd --
 ls docs
 mkdir upload
 cp -r "docs/_build" "upload"
