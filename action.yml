@@ -30,10 +30,6 @@ inputs:
     description: 'Primary language fo the code'
     default: 'c'
     required: false 
-  branchname:
-    description: 'The name of the branch you want to document'
-    default: 'main'
-    required: false 
 runs:
   using: 'node12'
   main: 'start.js'
