@@ -22,6 +22,6 @@ jobs:
     - name: Deploy 🚀
       uses: JamesIves/github-pages-deploy-action@4.0.0
       with:
-        nojekyll: true 
+        clean: false 
         branch: docs # The branch the action should deploy to.
         folder: upload # The folder the action should deploy.
