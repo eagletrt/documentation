@@ -19,7 +19,6 @@ jobs:
         version: 1.0.0             # project version
         release: 1.0.0             # project release
         language: c                # language used
-        branchname: main           # the name of the branch you want to document
     - name: Deploy 🚀
       uses: JamesIves/github-pages-deploy-action@4.0.0
       with:
