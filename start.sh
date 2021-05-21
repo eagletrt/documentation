@@ -18,7 +18,7 @@ ls -al "$DIR/docs"
 
 cp -R "$DIR/docs" "$GITHUB_WORKSPACE/docs"
 
-sudo apt-get install doxygen python3-sphinx
+sudo apt-get update install doxygen python3-sphinx
 pip3 install "breathe==4.12.0" exhale sphinx_rtd_theme
 
 cd docs
